@@ -1,0 +1,63 @@
+
+        JPanel topPanel = new JPanel();
+        JButton addArtworkButton = new JButton("Add Artwork");
+        topPanel.add(addArtworkButton);
+        frame.add(topPanel, BorderLayout.NORTH);
+
+        JPanel formPanel = new JPanel();
+        formPanel.setLayout(new GridLayout(0, 2, 10, 10)); //
+
+        JLabel titleLabel = new JLabel("Title : "); // MAKE LABEL FOR NIK
+        titleLabel.setBounds(50, 50, 100, 50);
+        titleLabel.setFont(new Font("Arial", Font.PLAIN, 16)); // CHANGE FONT
+        formPanel.add(titleLabel); // ADD LABEL TO PANEL
+
+        JTextField titleField = new JTextField();
+        titleField.setBounds(150, 60, 100, 30);
+        formPanel.add(titleField);
+
+        JLabel descriptionLabel = new JLabel("Description : "); // MAKE LABEL FOR NIK
+        descriptionLabel.setBounds(50, 50, 100, 50);
+        descriptionLabel.setFont(new Font("Arial", Font.PLAIN, 16)); // CHANGE FONT
+        formPanel.add(descriptionLabel); // ADD LABEL TO PANEL
+
+        JTextField descriptionField = new JTextField();
+        descriptionField.setBounds(150, 60, 100, 30);
+        formPanel.add(descriptionField);
+
+        JLabel photoLabel = new JLabel("PHOTO");
+        photoLabel.setBounds(400, 380, 100, 50);
+        photoLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+        formPanel.add(photoLabel);
+
+        JButton photoButton = new JButton("Upload");
+        photoButton.setBounds(550, 380, 100, 40);
+        formPanel.add(photoButton);
+
+        photoButton.addActionListener(new ActionListener() {
+
+            @Override
+
+            public void actionPerformed(ActionEvent e) {
+
+                JFileChooser fileChooser = new JFileChooser();
+
+                int returnValue = fileChooser.showOpenDialog(null);
+
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+
+                    photoFile = fileChooser.getSelectedFile();
+
+                }
+
+            }
+
+        });
+
+
+        
+
+        addArtworkButton.addActionListener(e -> {
+            JOptionPane.showMessageDialog(frame, "ARTWORKS ADDED");
+
+        });
